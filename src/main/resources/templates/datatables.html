@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <!-- Bootstrap -->
+    <link href="plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="http://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.cs"></script>
+    <script src="http://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script src="js/user.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/datatables.html"></script>
+</head>
+<body>
+
+
+
+<table id="tbl_users" class="table table-bordered table-hover table-indent tbl_tenants table_sort">
+    <thead>
+    <tr>
+        <th class="width10">名称</th>
+        <th class="width10">电话</th>
+        <th class="width10">邮箱</th>
+        <th class="width10">操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:remove="all">
+        <td>小王</td>
+        <td>138888888</td>
+        <td>liubei@126.com</td>
+        <td>修改</td>
+        <td>
+            <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">操作
+                </button><span class="caret"></span>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li data-toggle="modal" data-target="#quotaModal"><a href="#">编辑</a></li>
+                    <li data-toggle="modal" data-target="#myModal1"><a href="#">调整配额</a></li>
+                    <li data-toggle="modal" data-target="#myModal2"><a href="#">指定管理</a></li>
+                    <li data-toggle="modal" data-target="#myModal3"><a href="#">删除</a></li>
+                </ul>
+            </div>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
+</body>
+</html>

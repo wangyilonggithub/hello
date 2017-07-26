@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <!-- Bootstrap -->
+    <link href="plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/user.js"></script>
+</head>
+<body>
+
+
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal" data-whatever="@mdo">添加</button>
+<div class="bs-example" data-example-id="striped-table">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>用户名</th>
+            <th>电话</th>
+            <th>邮箱</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user: ${users}">
+            <td th:text="${user.id}">11</td>
+            <td th:text="${user.userName}">sizhongming</td>
+            <td th:text="${user.userName}">sizhongming</td>
+            <td th:text="${user.userName}">sizhongming</td>
+            <td>
+                <a href="details.html" data-toggle="modal" data-target="#addModal" onclick="edit()" th:href="@{/user/toedit(id=${user.id})}">修改</a>
+                <a href="details.html" th:href="@{/user/delete(id=${user.id})}">删除</a>
+            </td>
+            <!--<td th:text="${#numbers.formatDecimal(prod.price, 1, 2)}">0.99</td>-->
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+
+
+
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal" data-whatever="@getbootstrap">Open modal for @getbootstrap</button>
+
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="addModalLabel">New message</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <input type="hidden" name="id" id="id" th:value="${id}"/>
+                    <div class="form-group">
+                        <label for="userName" class="control-label">用户名</label>
+                        <input type="text" class="form-control" id="userName">
+                    </div>
+                    <div class="form-group">
+                        <label for="mobileNo" class="control-label">电话</label>
+                        <input type="text" class="form-control" id="mobileNo">
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="control-label">邮箱</label>
+                        <input type="text" class="form-control" id="email">
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" onclick="save()" class="btn btn-primary">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+</html>
